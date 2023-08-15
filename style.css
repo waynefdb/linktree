@@ -19,7 +19,7 @@
   --stroke-color: rgba(0, 0, 0, 0.5);
   --surface-color: rgba(0, 0, 0, 0.05);
   --surface-color-hover: rgba(0, 0, 0, 0.02);
-  --highight-color: rgba(0, 0, 0, 0.1);
+  --highlight-color: rgba(0, 0, 0, 0.1);
   --switch-bg-url: url(./assets/sun.svg);
 }
 body {
@@ -77,6 +77,11 @@ body * {
   top: 50%;
   transform: translateY(-50%);
   z-index: 1;
+  animation: slide-back 0.4s;
+}
+
+#switch button:hover {
+  outline: 8px solid var(--highlight-color);
 }
 
 #switch span {
@@ -91,8 +96,7 @@ body * {
 }
 
 .light #switch button {
-  right: 0;
-  left: initial;
+  animation: slide-in 0.4s forwards;
 }
 
 /* Links */
@@ -163,6 +167,28 @@ footer {
     --bg-url: url(./assets/bg.jpg);
   }
   .light {
-    --bg-url: url(./assests/bg-light.jpg);
+    --bg-url: url(./assets/bg.desk.light.jpg);
+  }
+}
+
+/* animation */
+
+@keyframes slide-in {
+  from {
+    left: 0;
+  }
+
+  to {
+    left: 50%;
+  }
+}
+
+@keyframes slide-back {
+  from {
+    left: 50%;
+  }
+
+  to {
+    left: 0;
   }
 }
